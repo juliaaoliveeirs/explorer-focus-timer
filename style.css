@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #fff;
+  --text-color: #323238;
+  --primary-color: #02799d;
+  --sounds-bg-color: #e1e1e6;
+  --focus-color: #fff;
+
+  font-size: 62.5%;
+}
+
+body,
+input,
+button,
+a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+body {
+  display: grid;
+  height: 90vh;
+  place-content: center;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+
+  margin: -1px;
+  padding: 0;
+  border: none;
+  appearance: none;
+}
+
+.content {
+  display: flex;
+  gap: 19.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+span {
+  font-size: 12.6rem;
+  font-weight: 500;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+#controls button[data-action] {
+  background: none;
+  border: none;
+  font-size: 4.8rem;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+#controls button[data-action]:hover {
+  color: var(--primary-color);
+  transition: 0.2s;
+}
+
+#sounds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem;
+}
+
+#sounds button[data-sound] {
+  font-size: 5.6rem;
+  padding: 4.8rem;
+
+  background: var(--sounds-bg-color);
+  border: none;
+  border-radius: 2.4rem;
+
+  cursor: pointer;
+}
+
+#sounds button[data-sound]:hover {
+  opacity: 0.75;
+  transition: 0.2s;
+}
+
+#sounds button[data-sound].active {
+  background: var(--primary-color);
+  color: var(--focus-color);
+}
+
+/* controls */
+.running .ph-play-circle,
+html:not(.running) .ph-stop-circle {
+  display: none;
+}
+
+#controls button[data-action].ph-plus-circle[disabled],
+#controls button[data-action].ph-minus-circle[disabled] {
+  cursor: not-allowed;
+}
